@@ -5,14 +5,20 @@ This is a demo project that I put together to present at a user group meetup.  U
 # Frameworks/References/Tools/Applications
 
 Visual Studio 2015 (I used Professional but I believe Community will work)
+
 SQL Server Express
+
 ASP.Net Core
+
 Entity Framework Core
+
 
 # Design Pattern(s)
 Repository Pattern
 
 # Resources
 .Net Core Roadmap:  https://github.com/dotnet/core/blob/master/roadmap.md
+
 ASP.Net Core Roadmap:  https://github.com/aspnet/Home/wiki/Roadmap
+
 EF Core Roadmap:  https://github.com/aspnet/EntityFramework/wiki/Roadmap
