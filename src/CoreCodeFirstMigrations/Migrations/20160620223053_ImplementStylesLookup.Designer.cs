@@ -8,9 +8,10 @@ using CoreCodeFirstMigrations.Models;
 namespace CoreCodeFirstMigrations.Migrations
 {
     [DbContext(typeof(BreweryContext))]
-    partial class BreweryContextModelSnapshot : ModelSnapshot
+    [Migration("20160620223053_ImplementStylesLookup")]
+    partial class ImplementStylesLookup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rc2-20901")

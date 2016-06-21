@@ -32,13 +32,14 @@ namespace CoreCodeFirstMigrations
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = @"Server=LT0989\LOCALDEV;Database=BeerData;Trusted_Connection=True;";
+            var connection = @"Server=Craig-Gamer\SqlExpress;Database=BeerData;Trusted_Connection=True;";
             services.AddDbContext<BreweryContext>(options => options.UseSqlServer(connection));
 
             // Add framework services.
             services.AddMvc();
 
             services.AddSingleton<IBeerRepository, BeerRepository>();
+            services.AddSingleton<IStyleRepository, StyleRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
