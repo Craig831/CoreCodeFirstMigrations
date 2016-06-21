@@ -68,10 +68,10 @@ namespace CoreCodeFirstMigrations.Controllers
             else
             {
                 updBeer.Name = beer.Name;
-                updBeer.BreweryName = beer.BreweryName;
-                updBeer.Style = beer.Style;
+                updBeer.BreweryId = beer.BreweryId;
+                updBeer.StyleId = beer.StyleId;
 
-                _repo.Update(beer);
+                _repo.Update(updBeer);
                 return new NoContentResult();
             }
         }

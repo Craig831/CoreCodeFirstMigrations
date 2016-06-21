@@ -12,65 +12,65 @@ using CoreCodeFirstMigrations.Interfaces;
 namespace CoreCodeFirstMigrations.Controllers
 {
     [Route("api/[controller]")]
-    public class StyleController : Controller
+    public class BreweryController : Controller
     {
-        private IStyleRepository _repo;
+        private IBreweryRepository _repo;
 
-        public StyleController(IStyleRepository repo)
+        public BreweryController(IBreweryRepository repo)
         {
             _repo = repo;
         }
 
         // GET: api/values
         [HttpGet]
-        public IEnumerable<Style> Get()
+        public IEnumerable<Brewery> Get()
         {
             return _repo.Get();
         }
 
         // GET api/values/5
-        [HttpGet("{id}", Name = "GetStyle")]
+        [HttpGet("{id}", Name = "GetBrewery")]
         public IActionResult Get(int id)
         {
-            var style = _repo.Search(b => b.ID == id).FirstOrDefault();
-            if(style == null)
+            var brewery = _repo.Search(b => b.ID == id).FirstOrDefault();
+            if(brewery == null)
             {
                 return NotFound();
             }
-            return new ObjectResult(style);
+            return new ObjectResult(brewery);
         }
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody]Style style)
+        public IActionResult Post([FromBody]Brewery brewery)
         {
-            if (style == null)
+            if (brewery == null)
                 return BadRequest("Required object is missing...");
 
-            _repo.Insert(style);
-            return CreatedAtRoute("GetStyle", new { controller = "Style", id = style.ID }, style);
+            _repo.Insert(brewery);
+            return CreatedAtRoute("GetBrewery", new { controller = "Brewery", id = brewery.ID }, brewery);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]Style style)
+        public IActionResult Put(int id, [FromBody]Brewery brewery)
         {
-            if (style == null || style.ID != id)
+            if (brewery == null || brewery.ID != id)
             {
-                return BadRequest("Invalid style data...");
+                return BadRequest("Invalid Brewery data...");
             }
 
-            var updStyle = _repo.Search(b => b.ID == id).FirstOrDefault();
-            if(updStyle == null)
+            var updBrewery = _repo.Search(b => b.ID == id).FirstOrDefault();
+            if(updBrewery == null)
             {
                 return NotFound();
             }
             else
             {
-                updStyle.Name = style.Name;
-                updStyle.Description = style.Description;
+                updBrewery.Name = brewery.Name;
+                updBrewery.Description = brewery.Description;
 
-                _repo.Update(updStyle);
+                _repo.Update(updBrewery);
                 return new NoContentResult();
             }
         }
@@ -79,13 +79,13 @@ namespace CoreCodeFirstMigrations.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var delStyle = _repo.Search(b => b.ID == id).FirstOrDefault();
-            if(delStyle == null)
+            var delBrewery = _repo.Search(b => b.ID == id).FirstOrDefault();
+            if(delBrewery == null)
             {
                 return NotFound();
             }
 
-            _repo.Delete(delStyle);
+            _repo.Delete(delBrewery);
             return new NoContentResult();
         }
     }

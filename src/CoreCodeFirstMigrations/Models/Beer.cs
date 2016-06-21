@@ -14,11 +14,12 @@ namespace CoreCodeFirstMigrations.Models
         [MaxLength(100, ErrorMessage = "Beer name must be shorter than 100 characters.")]
         public string Name { get; set; }
 
-        [MaxLength(100, ErrorMessage = "Brewery name must be shorter than 100 characters.")]
-        public string BreweryName { get; set; }
-
         public int StyleId { get; set; }
 
-        public Style Style { get; set; }
+        public int BreweryId { get; set; }
+
+        public virtual Style Style { get; set; }
+
+        public virtual Brewery Brewery {get; set;}
     }
 }

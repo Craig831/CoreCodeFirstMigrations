@@ -8,9 +8,10 @@ using CoreCodeFirstMigrations.Models;
 namespace CoreCodeFirstMigrations.Migrations
 {
     [DbContext(typeof(BreweryContext))]
-    partial class BreweryContextModelSnapshot : ModelSnapshot
+    [Migration("20160621172600_ImplementBreweryLookup")]
+    partial class ImplementBreweryLookup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rc2-20901")
@@ -22,6 +23,9 @@ namespace CoreCodeFirstMigrations.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("BreweryId");
+
+                    b.Property<string>("BreweryName")
+                        .HasAnnotation("MaxLength", 100);
 
                     b.Property<string>("Name")
                         .HasAnnotation("MaxLength", 100);

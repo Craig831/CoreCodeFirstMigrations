@@ -8,9 +8,10 @@ using CoreCodeFirstMigrations.Models;
 namespace CoreCodeFirstMigrations.Migrations
 {
     [DbContext(typeof(BreweryContext))]
-    partial class BreweryContextModelSnapshot : ModelSnapshot
+    [Migration("20160621174034_RemoveBreweryNameFromBeer")]
+    partial class RemoveBreweryNameFromBeer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rc2-20901")
